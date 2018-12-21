@@ -15,7 +15,9 @@ class Backup:
         f = False
         attachmentNum = 0
         print('Options:', '    (u)sername: prints usernames before message', '    (t)ime: prints the absolute time out', '    (f)avorites: prints out number of favorites on message', '    (a)ttachments: saves all attachments to folder', '    (e)verything: all options true', sep='\n')
+        
         options = input('Choose any options you want (i.e. \'u t\'): ').split()
+        
         if 'a' in options or 'e' in options:
             a = True
             attachmentNum = 1
@@ -45,7 +47,7 @@ class Backup:
             
                 text = message['text']
                 if text == None:
-                    text = "\n"
+                    text = ""
                 
                 if t:
                     self.outputFile.write(str(message['created_at'])+' ')
