@@ -49,3 +49,5 @@ Note that (a) will create an Attachments folder and download all the gallery ima
 Then voila! You should have a backup text file along with chronological attachments (if you so choose) saved. 
 
 ## Access Token
+
+Logging into dev.groupme.com, then clicking on "Access Token" at the top should give you an access token you can enter for this script. 
