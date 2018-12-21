@@ -24,11 +24,28 @@ Enter Access Token: MY-SUPER-SECRET-ACCESS-TOKEN
 [8] Memes
 [9] This is just bots
 [10] Group Of Friends That Are Entirely Coincidental
-[11] Term Project
+[11] Study Group
 [12] Crew
 [13] Mysterious Things
 [14] Book Club 📖
 Which group would you like to backup? (# or 'next/prev'): 
 ```
+
+Once you press enter, the script will pull all your messages from that group. 
+You then have a couple printing options. Make sure to enter them with a space inbetween, or just 'e' for all. 
+
+```
+Options:
+    (u)sername: prints usernames before message
+    (t)ime: prints the absolute time out
+    (f)avorites: prints out number of favorites on message
+    (a)ttachments: saves all attachments to folder
+    (e)verything: all options true
+Choose any options you want (i.e. 'u t'): 
+```
+
+Note that (a) will create an Attachments folder and download all the gallery images from the groupchat. This may take some time for larger groups.
+
+Then voila! You should have a backup text file along with chronological attachments (if you so choose) saved. 
 
 ## Access Token
