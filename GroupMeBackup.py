@@ -33,7 +33,7 @@ class Backup:
             t = True
         if 'f' in options or 'e' in options:
             f = True
-
+        
         for number, message in enumerate(reversed(self.messageIndex)):
             text = '\rSaving: {0}% {1}/{2} messages'.format(int(100*(float(number)/float(self.total))), number, self.total)
             sys.stdout.write(text)
@@ -48,7 +48,7 @@ class Backup:
                 text = message['text']
                 if text == None:
                     text = ""
-                
+        
                 if t:
                     self.outputFile.write(str(message['created_at'])+' ')
                 
@@ -59,10 +59,10 @@ class Backup:
                 
                 if f:
                     self.outputFile.write(" ♥: " + str(len(message['favorited_by'])))
-
+                    
                 self.outputFile.write('\n')
             except TypeError:
-#                print(message)
+        #                print(message)
                 print('ErrorPrinting')
         print('\n')
 
@@ -82,13 +82,13 @@ class Backup:
         requestParameters = {'token': self.accessToken, 'limit': 100}
         self.total = requests.get('https://api.groupme.com/v3/groups/' + str(self.groupId) + '/messages', params = requestParameters).json()['response']['count']
         number = 0
-        
+
         while True:
             try:
                 responseMessages = requests.get('https://api.groupme.com/v3/groups/' + str(self.groupId) + '/messages', params = requestParameters).json()['response']['messages']
             except ValueError:
                 break
-
+            
             number += len(responseMessages)
             text = '\rProgress: {0}% {1}/{2} messages'.format(int(100*(float(number)/float(self.total))), number, self.total)
             sys.stdout.write(text)
@@ -102,13 +102,13 @@ class Backup:
 
 def main():
     accessToken = str(input("Enter Access Token: "))
-
+    
     requestParameters = {'token': accessToken, 'per_page': 15, 'page': 1}
-
+    
     backup = Backup(accessToken)
-
+    
     groups = requests.get('https://api.groupme.com/v3/groups', params = requestParameters).json()['response']
-
+    
     while True:
         for num, group in enumerate(groups):
             print('[',num,'] ', group['name'],sep='')
